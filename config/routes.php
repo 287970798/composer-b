@@ -4,12 +4,14 @@ header('content-type:text/html;charset=utf-8');
 use NoahBuscher\Macaw\Macaw;
 
 Macaw::get('fuck', function() {
-  echo "成功！";
+    echo "成功！";
+    print_r(starts_with('with', 'with'));
 });
 
-Macaw::get('(:all)', function($fu) {
-  echo '未匹配到路由<br>'.$fu;
-});
+
+Macaw::$error_callback = function () {
+    throw new Exception("路由无匹配项 404 Not Found");
+};
 
 Macaw::get('', 'HomeController@home');
 Macaw::dispatch();

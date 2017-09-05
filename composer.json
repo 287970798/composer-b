@@ -1,7 +1,9 @@
 {
 	"require":{
 		"noahbuscher/macaw": "dev-master",
-		"illuminate/database": "*"
+		"illuminate/database": "*",
+		"filp/whoops": "*",
+		"nette/mail": "*"
 	},
 	"repositories": {
 		"packagist": {
@@ -12,7 +14,13 @@
 	"autoload": {
 		"classmap": [
 			"app/controllers",
-			"app/models"
-		]
+			"app/models",
+			"services"
+		],
+		"psr-4": {
+			"app\\controllers\\": "app/controllers/",
+			"app\\models\\": "app/models/",
+			"services\\": "services"
+		}
 	}
 }
